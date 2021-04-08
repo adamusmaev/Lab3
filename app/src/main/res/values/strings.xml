@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Lab3</string>
+    <string name="languageR">Язык:</string>
+    <string-array name="languages">
+        <item>Русский</item>
+        <item>English</item>
+    </string-array>
+    <string name = "meterE">meter</string>
+    <string name = "kilometerE">kilometer</string>
+    <string name = "centimeterE">centimeter</string>
+    <string name = "feetE">feet</string>
+    <string name = "mileE">mile</string>
+    <string name = "inchE">inch</string>
+    <string name = "meterR">метр</string>
+    <string name = "kilometerR">километр</string>
+    <string name = "centimeterR">сантиметр</string>
+    <string name = "feetR">фут</string>
+    <string name = "mileR">миля</string>
+    <string name = "inchR">дюйм</string>
+</resources>
