@@ -11,10 +11,14 @@
     <string name = "feetE">feet</string>
     <string name = "mileE">mile</string>
     <string name = "inchE">inch</string>
+    <string name = "languageE">Language</string>
+
     <string name = "meterR">метр</string>
     <string name = "kilometerR">километр</string>
     <string name = "centimeterR">сантиметр</string>
     <string name = "feetR">фут</string>
     <string name = "mileR">миля</string>
     <string name = "inchR">дюйм</string>
+
+
 </resources>
