@@ -5,7 +5,7 @@ public enum Value {
     METER(1.0, 1.0),
     KILOMETER (0.001, 1000.0),
     CENTIMETER(100.0, 0.01),
-    FEET(3.28, 0.003),
+    FEET(3.28, 0.3),
     MILE(0.00062, 1609.34),
     INCH(39.37, 0.025);
 

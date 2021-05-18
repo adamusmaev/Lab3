@@ -1,7 +1,11 @@
 package com.example.lab3;
 
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +13,7 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -28,16 +33,27 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     TextView textKilometer;
     TextView textInch;
 
+
+    static Locale enLocale = new Locale("en");
+    static Locale ruLocale = new Locale("ru");
+    static Configuration enConfig = new Configuration();
+    static Configuration ruConfig = new Configuration();
+    static String tmp = "Русский";
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter
                 .createFromResource(this, R.array.languages, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+        if (tmp == "Русский") spinner.setSelection(1);
         textMeter = (TextView) findViewById(R.id.textMeter);
         textViewList.add(textMeter);
         textMiles = (TextView) findViewById(R.id.textMile);
@@ -50,6 +66,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         textViewList.add(textKilometer);
         textInch = (TextView) findViewById(R.id.textInch);
         textViewList.add(textInch);
+
+        Locale.setDefault(enLocale);
+        enConfig.locale = enLocale;
+        ruConfig.locale = ruLocale;
 
 
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radio);
@@ -84,7 +104,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, final long id) {
-
         meter = (RadioButton) findViewById(R.id.meter);
         kilometer = (RadioButton) findViewById(R.id.kilometer);
         centimeter = (RadioButton) findViewById(R.id.centimeter);
@@ -101,29 +120,41 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         final String selectedItem = parent.getItemAtPosition(position).toString();
         final EditText editText = (EditText) findViewById(R.id.editTextText);
         String valueLanguage = selectedItem;
-        if (selectedItem.equals("English")) {
-            meter.setText(R.string.meterE);
-            kilometer.setText(R.string.kilometerE);
-            centimeter.setText(R.string.centimeterE);
-            feet.setText(R.string.feetE);
-            mile.setText(R.string.mileE);
-            inch.setText(R.string.inchE);
-            language.setText(R.string.languageE);
-            textMeterValue.setText(R.string.meterE);
-            textMilesValue.setText(R.string.mileE);
-            textFeetValue.setText(R.string.feetE);
-            textCentimeterValue.setText(R.string.centimeterE);
-            textKilometerValue.setText(R.string.kilometerE);
-            textInchValue.setText(R.string.inchE);
+
+        if (selectedItem.equals("English") && tmp == "Русский") {
+            tmp = "English";
+            getBaseContext().getResources().updateConfiguration(enConfig, null);
+            Intent refresh = new Intent(this, MainActivity.class);
+            finish();
+            startActivity(refresh);
+        }
+            /*meter.setText(R.string.meter);
+            kilometer.setText(R.string.kilometer);
+            centimeter.setText(R.string.centimeter);
+            feet.setText(R.string.feet);
+            mile.setText(R.string.mile);
+            inch.setText(R.string.inch);
+            language.setText(R.string.language);
+            textMeterValue.setText(R.string.meter);
+            textMilesValue.setText(R.string.mile);
+            textFeetValue.setText(R.string.feet);
+            textCentimeterValue.setText(R.string.centimeter);
+            textKilometerValue.setText(R.string.kilometer);
+            textInchValue.setText(R.string.inch);
             editText.setText(editText.getText().toString().replace(",", "."));
             for (TextView t : textViewList) {
                 t.setText(t.getText().toString().replace(",", "."));
-            }
+            }*/
 
 
+        if (selectedItem.equals("Русский") && tmp == "English") {
+            tmp = "Русский";
+            getBaseContext().getResources().updateConfiguration(ruConfig, null);
+            Intent refresh = new Intent(this, MainActivity.class);
+            finish();
+            startActivity(refresh);
         }
-        if (selectedItem.equals("Русский")) {
-            meter.setText(R.string.meterR);
+           /* meter.setText(R.string.meterR);
             kilometer.setText(R.string.kilometerR);
             centimeter.setText(R.string.centimeterR);
             feet.setText(R.string.feetR);
@@ -141,7 +172,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             for (TextView t : textViewList) {
                 t.setText(t.getText().toString().replace(".", ","));
             }
-        }
+        }*/
 
         editText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -174,6 +205,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+
     }
 
     public void countValue(Double editTextValue) {

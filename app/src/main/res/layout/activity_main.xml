@@ -8,7 +8,7 @@
                   android:orientation="horizontal">
         <TextView android:layout_width="match_parent"
                   android:layout_height="wrap_content"
-                  android:text="@string/languageR"
+                  android:text="@string/language"
                   android:layout_weight="1"
                   android:textSize="40dp"
                     android:id="@+id/language"/>
@@ -32,33 +32,33 @@
                 android:layout_margin="20dp"
                 android:id="@+id/radio">
             <RadioButton
-                    android:text="RadioButton"
+                    android:text="@string/meter"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/meter"
             />
             <RadioButton
-                    android:text="RadioButton"
+                    android:text="@string/kilometer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/kilometer"/>
             <RadioButton
-                    android:text="RadioButton"
+                    android:text="@string/centimeter"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/centimeter"/>
             <RadioButton
-                    android:text="RadioButton"
+                    android:text="@string/feet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/feet"/>
             <RadioButton
-                    android:text="RadioButton"
+                    android:text="@string/mile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/mile"/>
             <RadioButton
-                    android:text="RadioButton"
+                    android:text="@string/inch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/inch"/>
@@ -79,7 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp">
             <TextView
-                    android:text="TextView"
+                    android:text="@string/meter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textMeterValue"
@@ -97,7 +97,7 @@
                 android:layout_height="40dp"
         >
             <TextView
-                    android:text="TextView"
+                    android:text="@string/mile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textMilesValue"
@@ -115,7 +115,7 @@
                 android:layout_height="40dp"
         >
             <TextView
-                    android:text="TextView"
+                    android:text="@string/feet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textFeetValue"
@@ -133,7 +133,7 @@
                 android:layout_height="40dp"
         >
             <TextView
-                    android:text="TextView"
+                    android:text="@string/centimeter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textCentimeterValue"
@@ -151,7 +151,7 @@
                 android:layout_height="40dp"
         >
             <TextView
-                    android:text="TextView"
+                    android:text="@string/kilometer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textKilometerValue"
@@ -169,7 +169,7 @@
                 android:layout_height="40dp"
         >
             <TextView
-                    android:text="TextView"
+                    android:text="@string/inch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textInchValue"
